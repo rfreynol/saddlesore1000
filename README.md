@@ -8,6 +8,3 @@ This repo documents my attempt at riding the Saddlesore 1000 - a 1000 mile motor
 
 My [Spotwalla Trip Page](https://spotwalla.com/trip/d0a4-2383835e-2f7f/view) has tracks from both my SPOT and Garmin InReach trackers.
 
-Check out the [GitHub Documentation](https://docs.github.com)
-
-

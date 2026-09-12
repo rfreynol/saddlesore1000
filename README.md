@@ -2,7 +2,7 @@ This repo documents my attempt at riding the Saddlesore 1000 - a 1000 mile motor
 
 
 
-![The Route](images/route,jpg)
+![The Route](images/route.jpg)
 
 
 [/index.html](https://rfreynol.github.io/saddlesore1000/) contains a publicly available website documenting the ride.

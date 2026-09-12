@@ -1,4 +1,4 @@
-This repo documents my attempt at riding the Saddlesore 1000 - a 1000 mile motorcycle ride in 24 hours.
+This repo documents my attempt at riding the Saddlesore 1000 - a 1000 mile motorcycle ride in 24 hours.  The plan is to start in Gallup, New Mexico and take I-40 east to Arkansas, crossing the 1000 mile mark just outside of Russellville, AR.
 
 <img src="images/route.jpg" alt="The Route" width="600">
 

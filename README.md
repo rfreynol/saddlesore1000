@@ -1,5 +1,10 @@
 This repo documents my attempt at riding the Saddlesore 1000 - a 1000 mile motorcycle ride in 24 hours.
 
+
+
+![The Route](images/route,jpg)
+
+
 [/index.html](https://rfreynol.github.io/saddlesore1000/) contains a publicly available website documenting the ride.
 
 [/images](https://github.com/rfreynol/saddlesore1000/tree/main/images)  contains images of the odometer and gas receipts

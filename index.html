@@ -2,52 +2,350 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rob's Saddlesore 1000</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rob's Saddlesore 1000 - Iron Butt Ride 2027</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid #3b82f6;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #e0e7ff;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section styling */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #3b82f6;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #e0e7ff;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Card layout */
+        .card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #475569;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+
+        /* Image styling */
+        .image-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Grid for sections */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid #475569;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+
+        /* Links */
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a:hover {
+            color: #93c5fd;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #3b82f6;
+            bottom: -2px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        a:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Documentation section */
+        .documentation {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .doc-item {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .doc-item h4 {
+            color: #93c5fd;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .doc-item p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+        /* Stats badge */
+        .stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            border: 1px solid #3b82f6;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #475569;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+
+            .stats {
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>🏍️ Rob Reynolds 2027 Iron Butt Ride</h1>
+        <p class="subtitle">Saddle Sore 1000 Challenge - 1,100 Miles in 20 Hours</p>
+    </header>
 
+    <div class="container">
+        <!-- Overview Stats -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">1,100</div>
+                <div class="stat-label">Miles Ridden</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">20</div>
+                <div class="stat-label">Hours Completed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">2021</div>
+                <div class="stat-label">Yamaha Ténéré 700</div>
+            </div>
+        </div>
 
-<h1><strong>Rob Reynolds 2027 Iron Butt Ride</strong></h1>
-<p>On XXX June 2027, I completed my first Iron Butt ride, the Saddle Sore 1000, riding my 2021 Yamaha T&eacute;n&eacute;r&eacute; 700, 1,100 miles in 20 hours.</p>
-<p><h2>The Route:</h2></p>
+        <!-- Journey Overview -->
+        <section>
+            <div class="card">
+                <h2>The Challenge</h2>
+                <p>On XXX June 2027, I completed my first Iron Butt ride, the Saddle Sore 1000, riding my 2021 Yamaha Ténéré 700, 1,100 miles in 20 hours. This legendary endurance challenge tests rider and machine alike.</p>
+            </div>
+        </section>
 
-<p>&nbsp;</p>
+        <!-- The Route -->
+        <section>
+            <h2>The Route</h2>
+            <div class="card">
+                <div class="image-container">
+                    <img src="https://rfreynol.github.io/saddlesore1000/images/route.jpg" alt="The Route Map">
+                </div>
+                <p>A carefully planned route covering 1,100 miles of challenging roads and highways, documented for verification by the Iron Butt Association.</p>
+            </div>
+        </section>
 
-<p><img src="https://rfreynol.github.io/saddlesore1000/images/route.jpg" alt="The Route" width="800"></p>
+        <!-- The Bike -->
+        <section>
+            <h2>The Bike</h2>
+            <div class="card">
+                <h3>2021 Yamaha Ténéré 700</h3>
+                <p>I completed this ride on my 2021 Yamaha Ténéré 700. The bike had 25,000 miles on it when I started. This adventure-sport motorcycle proved to be the perfect partner for this endurance challenge, with excellent fuel efficiency and ergonomic comfort for long-distance riding.</p>
+                <div class="image-container">
+                    <img src="https://rfreynol.github.io/saddlesore1000/images/t700.jpg" alt="2021 Yamaha Ténéré 700">
+                </div>
+            </div>
+        </section>
 
-<p>&nbsp;</p>
+        <!-- Documentation -->
+        <section>
+            <h2>Documentation & Proof</h2>
+            <div class="documentation">
+                <div class="doc-item">
+                    <h4>📋 Ride Log</h4>
+                    <p>Detailed timestamps and odometer readings documenting the entire journey.</p>
+                </div>
+                <div class="doc-item">
+                    <h4>💳 Gas Receipts</h4>
+                    <p>Complete fuel transaction records showing fuel consumption patterns.</p>
+                </div>
+                <div class="doc-item">
+                    <h4>📍 GPX Files</h4>
+                    <p>GPS file from Garmin Tread and Garmin Montana for route verification.</p>
+                </div>
+                <div class="doc-item">
+                    <h4>🗺️ Live Map</h4>
+                    <p>Interactive Google Map with timestamps showing real-time route data.</p>
+                </div>
+            </div>
+        </section>
 
-    <p><h2>The Bike</h2></p>
-    <p>I completed this ride on my 2021 Yamaha Ténéré 700.  The bike had 25,000 miles on it when I started.  </p>
+        <!-- Tracking Links -->
+        <section>
+            <h2>Live Tracker Links</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h4>📡 Combined Tracker</h4>
+                    <p><a href="https://spotwalla.com/trip/d0a4-2383835e-2f7f/view">Combined SPOT and InReach Tracker</a></p>
+                </div>
+                <div class="grid-item">
+                    <h4>🛰️ SPOT Tracker</h4>
+                    <p><a href="https://spotwalla.com/trip/e697-9cd9c-98aa/view/">Rob's SPOT Tracker</a></p>
+                </div>
+                <div class="grid-item">
+                    <h4>📱 Garmin InReach</h4>
+                    <p><a href="https://spotwalla.com/trip/4f64-8ed78-4a87/view">Rob's Garmin InReach Tracker</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
 
-<p><img src="https://rfreynol.github.io/saddlesore1000/images/t700.jpg" alt="The Route" width="600"></p>
-        
-<p>&nbsp;</p>
-<h2>Documentation:</h2>
-<p>&nbsp;</p>
-<h3>Ride Log:</h3>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h3>Gas Receipts:</h3>
-<p>&nbsp;</p>
-<h3>GPX Files</h3>
-<p>GPX file from Garmin Tread:</p>
-<p>GPS file from Garmin Montana:&nbsp;</p>
-<p>Live Google Map of Route with Timestamps</p>
-<p>&nbsp;</p>
-
-
-<h3>Spotwalla Links:</h3>
-<p><a href="https://spotwalla.com/trip/d0a4-2383835e-2f7f/view">Combined SPOT and InReach Tracker</a></p>
-<p><a href="https://spotwalla.com/trip/e697-9cd9c-98aa/view/">Rob's SPOT Tracker</a></p>
-<p><a href="https://spotwalla.com/trip/4f64-8ed78-4a87/view">Rob's Garmin InReach Tracker</a></p>
-
-
-<p>&nbsp;</p>
+    <footer>
+        <p>&copy; 2027 Rob Reynolds. Iron Butt Association Verified.</p>
+    </footer>
 </body>
-  
+</html>

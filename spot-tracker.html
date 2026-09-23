@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPOT Tracker - Rob's Saddlesore 1000</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            padding: 2rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid #3b82f6;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .breadcrumb {
+            font-size: 0.95rem;
+            color: #e0e7ff;
+        }
+
+        .breadcrumb a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #93c5fd;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section styling */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #3b82f6;
+        }
+
+        p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        /* Card layout */
+        .card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #475569;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Iframe container */
+        .tracker-container {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            border: 1px solid #475569;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            height: 700px;
+            margin: 2rem 0;
+        }
+
+        .tracker-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Info box */
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            color: #cbd5e1;
+        }
+
+        .info-box strong {
+            color: #93c5fd;
+        }
+
+        /* Links */
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #93c5fd;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #475569;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            .tracker-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SPOT Tracker</h1>
+        <div class="breadcrumb"><a href="index.html">Back to Main</a></div>
+    </header>
+
+    <div class="container">
+        <section>
+            <div class="card">
+                <h2>Rob's SPOT Tracker</h2>
+                <p>Tracking data from the SPOT device with hourly position updates showing the breadcrumb trail of the route. The SPOT device provides reliable satellite-based positioning even in areas with limited cellular coverage.</p>
+                <div class="info-box">
+                    <strong>About SPOT:</strong> The SPOT device is a satellite-based personal locator beacon that transmits position updates via satellite. During the Saddle Sore 1000, it recorded hourly position updates providing continuous tracking of the route and serving as backup verification for the ride.
+                </div>
+            </div>
+
+            <div class="tracker-container">
+                <iframe src="https://spotwalla.com/trip/e697-9cd9c-98aa/view/" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <p>This tracker shows the SPOT device data throughout the entire 20-hour ride. The breadcrumb trail documents the complete route for Iron Butt Association verification. You can zoom in on the map to see detailed waypoint information.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2027 Rob Reynolds.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Map - Rob's Saddlesore 1000</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            padding: 2rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid #3b82f6;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .breadcrumb {
+            font-size: 0.95rem;
+            color: #e0e7ff;
+        }
+
+        .breadcrumb a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #93c5fd;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section styling */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #3b82f6;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e0e7ff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Card layout */
+        .card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #475569;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        /* Map placeholder */
+        .map-placeholder {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 2px dashed #3b82f6;
+            border-radius: 12px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            color: #94a3b8;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Grid for links */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .link-item {
+            background: rgba(59, 130, 246, 0.05);
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .link-title {
+            font-weight: 600;
+            color: #93c5fd;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .link-description {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #3b82f6;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Info box */
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            color: #cbd5e1;
+        }
+
+        .info-box strong {
+            color: #93c5fd;
+        }
+
+        /* Links */
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #93c5fd;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #475569;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            header {
+                padding: 1.5rem 1rem;
+            }
+
+            .map-placeholder {
+                height: 300px;
+            }
+
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Live Map</h1>
+        <div class="breadcrumb"><a href="index.html">Back to Main</a></div>
+    </header>
+
+    <div class="container">
+        <section>
+            <div class="card">
+                <h2>Interactive Route Map</h2>
+                <p>View the complete Saddle Sore 1000 route with detailed timestamps and verification points. This interactive map shows the exact path taken during the 20-hour endurance ride.</p>
+
+                <div class="map-placeholder">
+                    Interactive Google Map of Route with Timestamps<br>
+                    <span style="font-size: 0.85rem; color: #475569;">(Embedded map would display here)</span>
+                </div>
+
+                <div class="info-box">
+                    <strong>Route Information:</strong> The route covers 1,100 miles across multiple states, with fuel stops and rest breaks documented with GPS timestamps. The map can be used to verify the Iron Butt Association's Saddle Sore 1000 requirements.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Tracking Services</h2>
+            <p>Real-time and historical tracking data from multiple GPS providers during the ride:</p>
+
+            <div class="link-grid">
+                <div class="link-item">
+                    <div class="link-title">Combined Tracker</div>
+                    <div class="link-description">Live tracking data combined from both SPOT and Garmin InReach devices showing position updates throughout the ride.</div>
+                    <a href="https://spotwalla.com/trip/d0a4-2383835e-2f7f/view" class="link-button">View Map</a>
+                </div>
+                <div class="link-item">
+                    <div class="link-title">SPOT Tracker</div>
+                    <div class="link-description">Tracking data from the SPOT device with hourly position updates and breadcrumb trail of the route.</div>
+                    <a href="https://spotwalla.com/trip/e697-9cd9c-98aa/view/" class="link-button">View Map</a>
+                </div>
+                <div class="link-item">
+                    <div class="link-title">Garmin InReach</div>
+                    <div class="link-description">Real-time tracking from Garmin InReach satellite communicator with messages and location history.</div>
+                    <a href="https://spotwalla.com/trip/4f64-8ed78-4a87/view" class="link-button">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h2>Key Waypoints</h2>
+                <p>Major checkpoints and fuel stops along the Saddle Sore 1000 route:</p>
+                
+                <ul style="margin-left: 1.5rem; color: #cbd5e1;">
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #93c5fd;">Start Point (Mile 0)</strong> - Beginning of verified route</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #93c5fd;">First Checkpoint (Mile 275)</strong> - Fuel stop and verification point #1</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #93c5fd;">Midpoint (Mile 550)</strong> - Halfway mark with fuel and brief rest</li>
+                    <li style="margin-bottom: 0.75rem;"><strong style="color: #93c5fd;">Third Checkpoint (Mile 825)</strong> - Final fuel stop before finish</li>
+                    <li><strong style="color: #93c5fd;">Finish Point (Mile 1100)</strong> - End of Saddle Sore 1000 challenge</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2027 Rob Reynolds.</p>
+    </footer>
+</body>
+</html>

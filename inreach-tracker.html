@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ride Log - Rob's Saddlesore 1000</title>
+    <title>Garmin InReach Tracker - Rob's Saddlesore 1000</title>
     <style>
         * {
             margin: 0;
@@ -53,7 +53,7 @@
 
         /* Main container */
         .container {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
@@ -72,6 +72,11 @@
             border-bottom: 2px solid #3b82f6;
         }
 
+        p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
         /* Card layout */
         .card {
             background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
@@ -82,35 +87,35 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        p {
-            color: #cbd5e1;
-            margin-bottom: 1rem;
+        /* Iframe container */
+        .tracker-container {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 12px;
+            border: 1px solid #475569;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            height: 700px;
+            margin: 2rem 0;
         }
 
-        /* Table styling */
-        table {
+        .tracker-container iframe {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
+            height: 100%;
+            border: none;
         }
 
-        table th {
-            background: rgba(59, 130, 246, 0.2);
-            color: #93c5fd;
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-            border-bottom: 2px solid #3b82f6;
-        }
-
-        table td {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid #475569;
+        /* Info box */
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
             color: #cbd5e1;
         }
 
-        table tr:hover {
-            background: rgba(59, 130, 246, 0.1);
+        .info-box strong {
+            color: #93c5fd;
         }
 
         /* Links */
@@ -149,74 +154,34 @@
                 padding: 1.2rem 1rem;
             }
 
-            table {
-                font-size: 0.9rem;
-            }
-
-            table th, table td {
-                padding: 0.5rem;
+            .tracker-container {
+                height: 400px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Ride Log</h1>
+        <h1>Garmin InReach Tracker</h1>
         <div class="breadcrumb"><a href="index.html">Back to Main</a></div>
     </header>
 
     <div class="container">
         <section>
             <div class="card">
-                <h2>Ride Log</h2>
-                <p>Detailed timestamps and odometer readings documenting the entire Saddle Sore 1000 journey. This log provides verification of the ride for Iron Butt Association certification.</p>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Time</th>
-                            <th>Location</th>
-                            <th>Odometer (miles)</th>
-                            <th>Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>00:00</td>
-                            <td>Starting Point</td>
-                            <td>0</td>
-                            <td>Beginning of Saddle Sore 1000 attempt</td>
-                        </tr>
-                        <tr>
-                            <td>04:30</td>
-                            <td>First Checkpoint</td>
-                            <td>275</td>
-                            <td>Fuel stop #1</td>
-                        </tr>
-                        <tr>
-                            <td>09:00</td>
-                            <td>Midpoint</td>
-                            <td>550</td>
-                            <td>Fuel stop #2, brief rest</td>
-                        </tr>
-                        <tr>
-                            <td>13:30</td>
-                            <td>Third Checkpoint</td>
-                            <td>825</td>
-                            <td>Fuel stop #3</td>
-                        </tr>
-                        <tr>
-                            <td>20:00</td>
-                            <td>Finish Point</td>
-                            <td>1100</td>
-                            <td>Saddle Sore 1000 completed!</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2>Rob's Garmin InReach Tracker</h2>
+                <p>Real-time tracking from the Garmin InReach satellite communicator with messages and location history. The InReach device provides near real-time positioning updates via satellite network.</p>
+                <div class="info-box">
+                    <strong>About Garmin InReach:</strong> The Garmin InReach is a satellite communicator that enables two-way messaging and real-time position tracking. During the Saddle Sore 1000, it provided near real-time position updates, allowing tracking of the route as it happened. This serves as the most detailed tracking record for the ride.
+                </div>
+            </div>
 
-                <p style="margin-top: 2rem; font-size: 0.9rem; color: #94a3b8;">
-                    Note: This is a placeholder log. Complete ride documentation with exact timestamps and fuel purchases available upon request for IBA verification.
-                </p>
+            <div class="tracker-container">
+                <iframe src="https://spotwalla.com/trip/4f64-8ed78-4a87/view" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <p>This tracker shows the Garmin InReach data with the most frequent position updates during the ride. The detailed breadcrumb trail documents the exact route and timing, providing comprehensive verification of the Saddle Sore 1000 challenge. The map is fully interactive for detailed inspection.</p>
             </div>
         </section>
     </div>
